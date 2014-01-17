@@ -1,0 +1,11 @@
+<?xml version ="1.0" encoding = "UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+	xmlns:gap = "http://lequang.vn"
+	id = "lequang.vn"
+	version = "1.0.0">
+<name>Lequang</name>
+<description>
+	A simple PhoneGap Build application.
+</description>	
+<author href = "http://lequang.vn" email="hoangminhthanh89@gmail.com">ThanhHM</author>
+</widget>
