@@ -1,45 +1,376 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>lequang.vn</title>
+
+    <script type="text/javascript" src="http://lequang.vn/Scripts/LqImportScripts/jquery-1.8.3.js"></script>
+    <script src="js/plugins/inheritance.oop.js"></script>
+    <!--<script type="text/javascript" src="js/plugins/bootstrap.js"></script>-->
+    <script type="text/javascript" src="js/news.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/land.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
+    <script type="text/javascript" src="js/financial.js"></script>
+    <script type="text/javascript" src="js/service-mobi.js"></script>
+
+
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script src="js/plugins/slimScroll.js"></script>
+    <script src="js/plugins/jquery.autocomplete.js"></script>
+    <script src="js/plugins/infobubble.js"></script>
+    
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+    <script src="http://lequang.vn/Scripts/LqImportScripts/jquery.ui.datepicker-vi.js"></script>
+    <script src="http://lequang.vn/Scripts/LqImportScripts/jquery.ui.datepicker.validation.js"></script>
+    <script src="js/plugins/jquery.validate.js"></script>
+    <!--<script src="http://lequang.vn/Scripts/LqImportScripts/jquery-ui-1.9.2.custom.min.js"></script>-->
+    
+    <!--add new floor land-->
+    <!--<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>-->
+    <script src='http://maps.google.com/maps/api/js?sensor=false' type='text/javascript'></script>
+    
+    <!--<script src="js/LqMapObjects.js"></script>-->
+    <script src="js/lqutils.js"></script>
+    <script src="js/lqgoogleMap.js"></script>
+    <script src="js/lquserstatus.js"></script>
+    <script src="js/search-company.js"></script>
+    <script src="js/LqPaging.js"></script>
+    
+    <script src="js/company.js"></script>
+    <!--<script src="js/plugins/highcharts-more.src.js"></script>-->
+    <script src="js/plugins/highstock.src.js"></script>
+
+
+    <!--<script src="js/plugins/map.js"></script>-->
+    <!--<link href="css/bootstrap.css" rel="stylesheet" />-->
+    <!--<link href="css/bootstrap-responsive.css" rel="stylesheet" />-->
+
+</head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        <div id="keotha"></div>
+        <div id="banner-mobi" class="banner-mobi">
+            <div class="left-mobi">
+                <a class="logo-mobi" onclick="clickHome();">Lequang
+                </a>
+            </div>
+            <div class="right-mobi search-box">
+                <input id="search-company" type="search" results="5" name="search-news" placeholder="Công ty..." class="search-company">
+                <div id="bt-search"><button>OK</button></div>
             </div>
         </div>
-        <div>
-            <h2 style="text-align:center; color:red;clear:both;">Hoàng Minh Thanh</h2>
+        <div class="menu-mobi">
+            <ul class="">
+                <li id="home-mobi" onclick="clickHome();"><label width="16px" height="16px"></label>Home</li>
+                <li id="data-mobi"><label width="16px" height="16px"></label>Market</li>
+                <li id="news-post"><label width="16px" height="16px"></label>Tin mới</li>
+                <li id="folder-mobi"><label width="16px" height="16px"></label>Menu</li>
+                <!--<li id="folder-mobi" onclick="history.go(-1);return false;"><label width="16px" height="16px"></label>Danh mục</li>-->
+            </ul>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
+        
+        <div id="body">
+            
+            <div class="top-new-slider idnews">
+                    
+            </div>
+
+            <div class="top2-new-hot">
+                
+            </div>
+
+            <div id="category" class="category">
+                
+            </div>
+
+        </div>
+            <!--<script type="text/javascript" src="cordova.js"></script>-->
+            <script type="text/javascript" src="js/index.js"></script>
+            <!--<script type="text/javascript">
+        /*app.initialize();*/
+        </script>-->
+        <div id="folder-mobi_line" class="menu-footer" >
+            <ul>
+                <li id="home-sub-mobi">Trang chủ</li>
+                <li id="TTCK">Chứng khoán</li>
+                <li id="DN">Doanh nghiệp</li>
+                <li id="BDS">Bất động sản</li>
+                <li id="TCNH">Tài chính ngân hàng</li>
+                <li id="TCTG">Tài chính thế giới</li>
+                <li id="KTDT">Kinh tế đầu tư</li>
+                <li id="HH">Hàng hóa</li>
+                <li id="TTSK">Tin tức sự kiện</li>
+                <li id="data">Data</li>
+                <li id="TN">Thuật ngữ</li>
+                <li id="KD">Kinh doanh</li>
+                <li id="DNN">Doanh nhân</li>
+                <li id="PTDT">Phân tích đầu tư</li>
+                <li id="manager-user">Quản lý tài khoản</li>
+                <li id="TM">Tin mới</li>
+                <li id="scroll-top">Về đầu trang</li>
+            </ul>
+        </div>
+        <div id=""></div>
+        <script>
+            var mobi = {};
+            var arrayHome = ["DN", "BDS", "TCNH", "TCTG", "KTDT", "HH", "TTSK", "KD", "DNN"];
+            var i = 0;
+            $(document).ready(function () {
+                readLinkHref();
+                clickMenu();
+                $("#manager-user").bind('click', function () {
+                    if (LqUtils.readCookie("AuthenticationToken") == null || LqUtils.readCookie("AuthenticationToken") == "00000000-0000-0000-0000-000000000000")
+                        window.location.href = LqUtils.linkweb + '?dang-nhap/';
+                    else {
+                        window.location.href = LqUtils.linkweb + '?trang-ca-nhan/';
+                    }
+                    //<a href="ajax/user/profiles/manager/index.htm">ajax/user/profiles/manager/index.htm</a>
+                });
+                LqUtils.LoadJson('http://lequang.vn/Content/Temps/ComapanyJsonStore.json', function (data) {
+                    
+                    CompanyMobi.CompanyCache["company"] = data;
+                    LqUserStatus.Search__dataCompany = JSON.stringify(CompanyMobi.CompanyCache["company"]);
+                    //console.log(LqUserStatus.Search__dataCompany);
+                });
+                SearchCompany.setupEvent();
+                SearchCompany.loadActive(function () { });
+                $("#bt-search").click(function () { SearchCompany.goTo(); });
+                //$("#keotha").load('ajax/keotha.htm');
+            });
+
+            function readLinkHref() {
+                var href = window.location.href;
+                if (href == LqUtils.linkweb) {
+                    News.listIdImage = '';
+                    News.listIdImageStock = '';
+                    News.getTop3NewsHot("ALL", "ALL", function () { });
+                    News.LoadNewsHomeByGroup("TTCK", function () {
+                        News.LoadImageByListId(News.listIdImageStock.substr(0, News.listIdImageStock.length - 1));
+                        loadGroup();
+                    });
+                    $("#home-mobi").addClass("active-menu-top");
+                } else if (LqUtils.getNewsId() != "") {
+                    clickMenu();
+                    News.id = LqUtils.getNewsId();
+                    for (var i in LqUtils.hrefMapping) {
+                        if (href.indexOf(LqUtils.hrefMapping[i]) != -1) {
+                            News.group = i.split("/")[0];
+                            News.category = i.split("/")[1];
+                            $("#body").load("ajax/detail-news.htm");
+                        }
+                    }
+
+                } else if (LqUtils.getNewsId() == "") {
+                    var linkChange = href.split(LqUtils.linkweb)[1];
+                    if (linkChange.indexOf("?du-lieu/") != -1) {
+                        $("#data-mobi").addClass("active-menu-top");
+                        var ajaxCompany = { "ajax/company/index.htm": "/cong-ty/tq-", "ajax/company/history-price.htm": "/cong-ty/lsg-", "ajax/company/order-statistic.htm": "/cong-ty/tkdl-", "ajax/company/batch-matching.htm": "/cong-ty/kltl-", "ajax/company/trading-foreign.htm": "/cong-ty/gdkn-" };
+                        var ajaxExchange = { "ajax/data/index.htm": "/toan-canh-thi-truong/", "ajax/data/datacompanys.htm": "/tim-kiem-cong-ty/", "ajax/data/company-news.htm": "/tin-tuc-cong-ty/", "ajax/data/margin-ratio.htm": "/ty-le-ky-quy/" };
+                        for (var e in ajaxExchange) {
+                            if (linkChange.indexOf(ajaxExchange[e]) != -1) {
+                                $("#body").html('<div class="title-top"><span id="texttitle">Chứng khoán</span><div id="title-top-right"><select id="slNameSubCategory"><option value="TCTT" selected="selected">Toàn cảnh thị trường</option><option value="DLCT">Dữ liệu công ty</option><option value="TTCT">Tin tức công ty</option><option value="TLKQ">Tỷ lệ ký quỹ</option></select></div></div><div id="content-market"></div>');
+                                $("#content-market").load(e, function () {
+                                    var subExchange = { "TCTT": "?du-lieu/toan-canh-thi-truong/", "DLCT": "?du-lieu/tim-kiem-cong-ty/", "TTCT": "?du-lieu/tin-tuc-cong-ty/", "TLKQ": "?du-lieu/ty-le-ky-quy/" };
+                                    for (var b in subExchange) {
+                                        if (href.indexOf(subExchange[b]) != -1) {
+                                            $("#slNameSubCategory").val(b);
+                                        }
+                                    }
+                                    $("#slNameSubCategory").change(function () {
+                                        var val = this.value;
+                                        for (var s in subExchange) {
+                                            if (val == s) {
+                                                window.location.href = LqUtils.linkweb + subExchange[s];
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        }
+
+                        for (var c in ajaxCompany) {
+                            if (linkChange.indexOf(ajaxCompany[c]) != -1) {
+                                $("#body").html('<div class="title-top"><span>Dữ liệu</span><select id="choice-information-company"><option value="TQ">Tổng quan</option><option value="LSG">Lịch sử giá</option><option value="TKDL">Thống kê đặt lệnh</option><option value="KLTL">Khớp lệnh theo lô</option><option value="GDKN">Giao dịch khối ngoại</option></select></div><div id="content-company"></div>');
+                                CompanyMobi.params["stockCode"] = linkChange.split(ajaxCompany[c])[1].split("/")[0];
+                                $("#content-company").load(c, function () {
+                                    $("#choice-information-company").change(function () {
+                                        var val = this.value;
+                                        var subCompany = { "TQ": "?du-lieu/cong-ty/tq-", "LSG": "?du-lieu/cong-ty/lsg-", "TKDL": "?du-lieu/cong-ty/tkdl-", "KLTL": "?du-lieu/cong-ty/kltl-", "GDKN": "?du-lieu/cong-ty/gdkn-" };
+                                        for (var s in subCompany) {
+                                            if (val == s) {
+                                                window.location.href = LqUtils.linkweb + subCompany[s] + CompanyMobi.params["stockCode"] + "/";
+                                            }
+                                        }
+                                    });
+                                });
+
+                            }
+                        }
+                    } else {
+                        for (var u in LqUtils.hrefMapping) {
+                            if (href.indexOf(LqUtils.hrefMapping[u]) != -1) {
+                                console.log("sub-category.htm");
+                                News.group = u.split("/")[0];
+                                News.category = u.split("/")[1];
+                                $("#body").load("ajax/sub-category.htm");
+                            }
+                        }
+                        for (var k in LqUtils.hrefGroup) {
+                            if (linkChange == LqUtils.hrefGroup[k]) {
+                                if (LqUtils.hrefGroup[k] == "TTCK" || LqUtils.hrefGroup[k] == "TN") {
+                                } else {
+                                    News.group = k;
+                                    console.log("category.htm");
+                                    $("#body").load("ajax/category.htm");
+                                }
+                            }
+                        }
+                        /*link khac tin tuc*/
+                        for (var r in LqUtils.linkLoadOrther) {
+                            if (href.indexOf(r) != -1) {
+                                News.group = LqUtils.linkOrther[r].split("/")[0];
+                                News.category = LqUtils.linkOrther[r].split("/")[1];
+                                console.log(News.group + ":" + News.category);
+                                $("#body").load(LqUtils.linkLoadOrther[r], function() {
+                                });
+                            }
+                        }
+                        if (href.indexOf("?bat-dong-san/chi-tiet-du-an/da-") != -1) {
+                            LandMobi.ProjectParams['id'] = href.split("?bat-dong-san/chi-tiet-du-an/da-")[1].split("/")[0];
+                            $("#body").load('ajax/land/details-project.htm');
+                        }
+                        if (href.indexOf("?chu-de/mathe") != -1) {
+                            $("#body").load('ajax/search-tag.htm');
+                        }
+                        if (href.indexOf("?dang-nhap/") != -1) {
+                            $("#body").load("ajax/user/login.htm");
+                        }
+                        if (href.indexOf("?trang-ca-nhan/") != -1) {
+                            //if(UserMobi.credits.AuthenticationToken)
+                            $("#body").load('ajax/user/profiles/manager/index.htm');
+                        }
+                        if(href.indexOf("?tin-moi/")!=-1) {
+                            $("#body").load('ajax/newpost.htm');
+                        }
+                    }
+                }
+            };
+
+            var loadGroup = function (fn) {
+                if (i < arrayHome.length - 1) {
+                    News.LoadNewsHomeByGroup(arrayHome[i], function() {
+                        i++;
+                        loadGroup();
+                    });
+                } else if (i == arrayHome.length - 1) {
+                    News.LoadNewsHomeByGroup(arrayHome[i], function () {
+                        i++;
+                        loadGroup(function () {
+                            News.ClickId();
+                            News.ClickTitleGroup();
+                            News.ClickTitleCategory();
+                            console.log("test succefful");
+                            News.LoadImageByListId(News.listIdImage.substr(0, News.listIdImage.length - 1));
+                        });
+                        
+                    });
+                }
+                if (fn) fn();
+            };
+
+            function clickMenu() {
+                $("#folder-mobi").click(function () {
+                    $("#body").html("");
+                    $(".menu-mobi ul li").removeClass("active-menu-top");
+                    Scroll("folder-mobi", "folder-mobi_line", 1);
+                });
+                $("#news-post").click(function () {
+                    //$("#body").load('ajax/newpost.htm', function () { });
+                    window.location.href = LqUtils.linkweb + "?tin-moi/";
+                });
+                $("#data-mobi").click(function () {
+                    window.location.href = LqUtils.linkweb + "?du-lieu/toan-canh-thi-truong/";
+                    //$("#body").load('ajax/data/index.htm', function () { });
+                });
+                $("#folder-mobi_line li").each(function () {
+                    var idli = $(this).attr("id");
+                    var delay = 1;
+                    $("#" + idli).click(function () {
+                        if (idli == "home-sub-mobi") {
+                            window.location.href = LqUtils.linkweb;
+                        } else if (idli == "scroll-top") {
+                            delay = 500;
+                        } else if (idli == "data") {
+                            $("#data-mobi").trigger("click");
+                        } else if (idli == "TM") {
+                            $("#news-post").trigger("click");
+                        } else if (idli == "TN" || idli == "TTCK") {
+                            for(var e in LqUtils.hrefMapping) {
+                                if (idli == e.split("/")[0])
+                                    window.location.href = LqUtils.linkweb + LqUtils.hrefMapping[idli + "/" + idli];
+                            }
+                        } else {
+                            for (var i in LqUtils.hrefGroup) {
+                                if (idli == i)
+                                    window.location.href = LqUtils.linkweb + LqUtils.hrefGroup[i];
+                            }
+                        }
+                        $('html, body').stop().animate({
+                            scrollTop: $("#banner-mobi").offset().top
+                        }, delay);
+                    });
+                });
+            }
+            function Scroll(idClick, idScroll, delay) {
+                var scroll = $("#" + idScroll).offset().top;
+                $("#" + idClick).click(function () {
+                    $('html, body').stop().animate({
+                        scrollTop: scroll
+                    }, delay);
+                });
+            }
+
+            function clickHome() {
+                window.location.href = LqUtils.linkweb;
+            }
+
+
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-43837289-1', 'lequang.vn');
+            ga('send', 'pageview');
+            
         </script>
+        <footer>
+            <address>
+                <div id="lq-bottom-copyright">
+                    <div class="copyright-2013">Copyright 2013 - Lequang.vn</div>
+                    <div class="lq-name-company">
+                        <div class="float-left">
+                            Công ty cổ phần truyền thông 
+                            <a href="http://lequang.vn/" class="lq-logo-small">Lequang</a>
+                            <span id="lq-logo-news" class="lq-logo-news">News</span>
+                        </div>
+                        <br/>
+                        <div class="clear"></div>
+                        <div id="bottomEmail" class="lqLeft">Địa chỉ email: <a href="mailto:info@lequang.vn">info@lequang.vn</a> </div>
+                    </div>
+                </div>
+            </address>
+        </footer>
     </body>
+
 </html>
