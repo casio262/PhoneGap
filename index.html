@@ -154,6 +154,16 @@
                         loadGroup();
                     });
                     $("#home-mobi").addClass("active-menu-top");
+                }else if(href=="file://android_asset/www/index.html") {
+                    News.listIdImage = '';
+                    News.listIdImageStock = '';
+                    News.getTop3NewsHot("ALL", "ALL", function () { });
+                    News.LoadNewsHomeByGroup("TTCK", function () {
+                        News.LoadImageByListId(News.listIdImageStock.substr(0, News.listIdImageStock.length - 1));
+                        loadGroup();
+                    });
+                    $("#home-mobi").addClass("active-menu-top");
+                    
                 } else if (LqUtils.getNewsId() != "") {
                     clickMenu();
                     News.id = LqUtils.getNewsId();
