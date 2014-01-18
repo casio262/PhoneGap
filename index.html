@@ -128,7 +128,7 @@
                     else {
                         window.location.href = LqUtils.linkweb + '?trang-ca-nhan/';
                     }
-                    //<a href="ajax/user/profiles/manager/index.htm">ajax/user/profiles/manager/index.htm</a>
+                    
                 });
                 LqUtils.LoadJson('http://lequang.vn/Content/Temps/ComapanyJsonStore.json', function (data) {
                     
@@ -139,7 +139,7 @@
                 SearchCompany.setupEvent();
                 SearchCompany.loadActive(function () { });
                 $("#bt-search").click(function () { SearchCompany.goTo(); });
-                //$("#keotha").load('ajax/keotha.htm');
+                
             });
 
             function readLinkHref() {
@@ -165,21 +165,7 @@
                     }
 
                 } else if (LqUtils.getNewsId() == "") {
-                    var linkChange;
-                    if (href.split(LqUtils.linkweb)[1] == undefined) {
-                        linkChange = LqUtils.linkweb;
-                        console.log(LqUtils.linkweb);
-                        News.listIdImage = '';
-                        News.listIdImageStock = '';
-                        News.getTop3NewsHot("ALL", "ALL", function () { });
-                        News.LoadNewsHomeByGroup("TTCK", function () {
-                            News.LoadImageByListId(News.listIdImageStock.substr(0, News.listIdImageStock.length - 1));
-                            loadGroup();
-                        });
-                        $("#home-mobi").addClass("active-menu-top");
-                    } else {
-                        linkChange = href.split(LqUtils.linkweb)[1];
-                    
+                    var linkChange =href.split(LqUtils.linkweb)[1];
                     if (linkChange.indexOf("?du-lieu/") != -1) {
                         $("#data-mobi").addClass("active-menu-top");
                         var ajaxCompany = { "ajax/company/index.htm": "/cong-ty/tq-", "ajax/company/history-price.htm": "/cong-ty/lsg-", "ajax/company/order-statistic.htm": "/cong-ty/tkdl-", "ajax/company/batch-matching.htm": "/cong-ty/kltl-", "ajax/company/trading-foreign.htm": "/cong-ty/gdkn-" };
@@ -271,7 +257,7 @@
                             $("#body").load('ajax/newpost.htm');
                         }
                     }
-                }
+                
                 }
             };
 
