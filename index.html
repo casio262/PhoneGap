@@ -120,6 +120,7 @@
             var i = 0;
             $(document).ready(function () {
                 readLinkHref();
+                alert(window.location.href);
                 clickMenu();
                 $("#manager-user").bind('click', function () {
                     if (LqUtils.readCookie("AuthenticationToken") == null || LqUtils.readCookie("AuthenticationToken") == "00000000-0000-0000-0000-000000000000")
