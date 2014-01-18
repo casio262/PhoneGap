@@ -144,6 +144,7 @@
 
             function readLinkHref() {
                 var href = window.location.href;
+                alert(href, LqUtils.linkweb);
                 if (href == LqUtils.linkweb) {
                     News.listIdImage = '';
                     News.listIdImageStock = '';
@@ -153,7 +154,7 @@
                         loadGroup();
                     });
                     $("#home-mobi").addClass("active-menu-top");
-                }else if(window.location.href=="file://android_asset/www/index.html") {
+                }else if(window.location.href=="file:///android_asset/www/index.html") {
                     alert('http:');
                     window.location.href = LqUtils.linkweb;
                     
