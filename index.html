@@ -5,31 +5,31 @@
     <meta name="format-detection" content="telephone=no" />
     <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
-    <link rel="stylesheet" type="text/css" href="http://m.lequang.vn/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>lequang.vn</title>
 
     <script type="text/javascript" src="http://lequang.vn/Scripts/LqImportScripts/jquery-1.8.3.js"></script>
-    <script src="http://m.lequang.vn/js/plugins/inheritance.oop.js"></script>
+    <script src="js/plugins/inheritance.oop.js"></script>
     <!--<script type="text/javascript" src="js/plugins/bootstrap.js"></script>-->
-    <script type="text/javascript" src="http://m.lequang.vn/js/news.js"></script>
-    <script type="text/javascript" src="http://m.lequang.vn/js/main.js"></script>
-    <script type="text/javascript" src="http://m.lequang.vn/js/land.js"></script>
-    <script type="text/javascript" src="http://m.lequang.vn/js/user.js"></script>
-    <script type="text/javascript" src="http://m.lequang.vn/js/financial.js"></script>
-    <script type="text/javascript" src="http://m.lequang.vn/js/service-mobi.js"></script>
+    <script type="text/javascript" src="js/news.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/land.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
+    <script type="text/javascript" src="js/financial.js"></script>
+    <script type="text/javascript" src="js/service-mobi.js"></script>
 
 
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
-    <script src="http://m.lequang.vn/js/plugins/slimScroll.js"></script>
-    <script src="http://m.lequang.vn/js/plugins/jquery.autocomplete.js"></script>
-    <script src="http://m.lequang.vn/js/plugins/infobubble.js"></script>
+    <script src="js/plugins/slimScroll.js"></script>
+    <script src="js/plugins/jquery.autocomplete.js"></script>
+    <script src="js/plugins/infobubble.js"></script>
     
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
     <script src="http://lequang.vn/Scripts/LqImportScripts/jquery.ui.datepicker-vi.js"></script>
     <script src="http://lequang.vn/Scripts/LqImportScripts/jquery.ui.datepicker.validation.js"></script>
-    <script src="http://m.lequang.vn/js/plugins/jquery.validate.js"></script>
+    <script src="js/plugins/jquery.validate.js"></script>
     <!--<script src="http://lequang.vn/Scripts/LqImportScripts/jquery-ui-1.9.2.custom.min.js"></script>-->
     
     <!--add new floor land-->
@@ -37,15 +37,15 @@
     <script src='http://maps.google.com/maps/api/js?sensor=false' type='text/javascript'></script>
     
     <!--<script src="js/LqMapObjects.js"></script>-->
-    <script src="http://m.lequang.vn/js/lqutils.js"></script>
-    <script src="http://m.lequang.vn/js/lqgoogleMap.js"></script>
-    <script src="http://m.lequang.vn/js/lquserstatus.js"></script>
-    <script src="http://m.lequang.vn/js/search-company.js"></script>
-    <script src="http://m.lequang.vn/js/LqPaging.js"></script>
+    <script src="js/lqutils.js"></script>
+    <script src="js/lqgoogleMap.js"></script>
+    <script src="js/lquserstatus.js"></script>
+    <script src="js/search-company.js"></script>
+    <script src="js/LqPaging.js"></script>
     
-    <script src="http://m.lequang.vn/js/company.js"></script>
+    <script src="js/company.js"></script>
     <!--<script src="js/plugins/highcharts-more.src.js"></script>-->
-    <script src="http://m.lequang.vn/js/plugins/highstock.src.js"></script>
+    <script src="js/plugins/highstock.src.js"></script>
 
 
     <!--<script src="js/plugins/map.js"></script>-->
@@ -91,6 +91,8 @@
 
         </div>
 
+            <script type="text/javascript" src="js/index.js"></script>
+
         <div id="folder-mobi_line" class="menu-footer" >
             <ul>
                 <li id="home-sub-mobi">Trang chủ</li>
@@ -118,9 +120,7 @@
             var arrayHome = ["DN", "BDS", "TCNH", "TCTG", "KTDT", "HH", "TTSK", "KD", "DNN"];
             var i = 0;
             $(document).ready(function () {
-                alert(window.location.href);
                 readLinkHref();
-                
                 clickMenu();
                 $("#manager-user").bind('click', function () {
                     if (LqUtils.readCookie("AuthenticationToken") == null || LqUtils.readCookie("AuthenticationToken") == "00000000-0000-0000-0000-000000000000")
@@ -128,7 +128,7 @@
                     else {
                         window.location.href = LqUtils.linkweb + '?trang-ca-nhan/';
                     }
-                    
+                    //<a href="ajax/user/profiles/manager/index.htm">ajax/user/profiles/manager/index.htm</a>
                 });
                 LqUtils.LoadJson('http://lequang.vn/Content/Temps/ComapanyJsonStore.json', function (data) {
                     
@@ -139,11 +139,12 @@
                 SearchCompany.setupEvent();
                 SearchCompany.loadActive(function () { });
                 $("#bt-search").click(function () { SearchCompany.goTo(); });
-                
+                //$("#keotha").load('ajax/keotha.htm');
             });
 
             function readLinkHref() {
                 var href = window.location.href;
+                alert(href);
                 if (href == LqUtils.linkweb) {
                     News.listIdImage = '';
                     News.listIdImageStock = '';
@@ -165,7 +166,7 @@
                     }
 
                 } else if (LqUtils.getNewsId() == "") {
-                    var linkChange =href.split(LqUtils.linkweb)[1];
+                    var linkChange = href.split(LqUtils.linkweb)[1];
                     if (linkChange.indexOf("?du-lieu/") != -1) {
                         $("#data-mobi").addClass("active-menu-top");
                         var ajaxCompany = { "ajax/company/index.htm": "/cong-ty/tq-", "ajax/company/history-price.htm": "/cong-ty/lsg-", "ajax/company/order-statistic.htm": "/cong-ty/tkdl-", "ajax/company/batch-matching.htm": "/cong-ty/kltl-", "ajax/company/trading-foreign.htm": "/cong-ty/gdkn-" };
@@ -257,7 +258,6 @@
                             $("#body").load('ajax/newpost.htm');
                         }
                     }
-                
                 }
             };
 
